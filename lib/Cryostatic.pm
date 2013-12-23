@@ -1,15 +1,27 @@
 package Cryostatic;
 
 use Mojo::Base 'Mojolicious';
+use Path::Tiny;
 use Text::MultiMarkdown;
 use Text::FrontMatter::YAML;
 
 our $VERSION = '0.01';
 
 has static_ext => sub {
-  my $self = shift;
-  return ['markdown', 'mkd', 'md'];
+    my $self = shift;
+    return ['markdown', 'mkd', 'md'];
 };
+
+sub startup {
+    my $self    = shift;
+    my $cfgfile = path("~/.cryostatic.conf");
+    $self->plugin('Config' => {file => $cfgfile});
+    $self->helper(config => $self->config || +{});
+
+    $self->secrets(['who cares', 'i punch hamsters']);
+
+    # Where are the documents
+}
 
 1;
 __END__
@@ -26,7 +38,9 @@ Cryostatic - datacode ngin.
 
 =head1 DESCRIPTION
 
-Cryostatic is a datacode engine.
+Cryostatic is a datacode engine. Producing JSON output of YAML
+FrontMatter documents while keeping the feel of static site
+generators.
 
 =head1 AUTHOR
 
