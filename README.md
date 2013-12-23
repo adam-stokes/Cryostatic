@@ -1,6 +1,6 @@
 # NAME
 
-Cryostatic - Blah blah blah
+Cryostatic - datacode ngin.
 
 # SYNOPSIS
 
@@ -8,7 +8,7 @@ Cryostatic - Blah blah blah
 
 # DESCRIPTION
 
-Cryostatic is
+Cryostatic is a datacode engine.
 
 # AUTHOR
 
