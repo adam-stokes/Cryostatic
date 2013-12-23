@@ -1,8 +1,15 @@
 package Cryostatic;
 
-use strict;
-use 5.008_005;
+use Mojo::Base 'Mojolicious';
+use Text::MultiMarkdown;
+use Text::FrontMatter::YAML;
+
 our $VERSION = '0.01';
+
+has static_ext => sub {
+  my $self = shift;
+  return ['markdown', 'mkd', 'md'];
+};
 
 1;
 __END__

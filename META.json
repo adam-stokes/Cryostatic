@@ -36,6 +36,8 @@
       },
       "runtime" : {
          "requires" : {
+            "Text::FrontMatter::YAML" : "0",
+            "Text::MultiMarkdown" : "0",
             "perl" : "5.008005"
          }
       },
@@ -46,6 +48,17 @@
       }
    },
    "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/battlemidget/Cryostatic/issues"
+      },
+      "homepage" : "https://github.com/battlemidget/Cryostatic",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/battlemidget/Cryostatic.git",
+         "web" : "https://github.com/battlemidget/Cryostatic"
+      }
+   },
    "version" : "0.01",
    "x_contributors" : [
       "Adam Stokes <adam.stokes@ubuntu.com>"
