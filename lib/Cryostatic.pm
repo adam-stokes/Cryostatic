@@ -2,7 +2,6 @@ package Cryostatic;
 
 use Mojo::Base 'Mojolicious';
 use Path::Tiny;
-use Text::MultiMarkdown;
 use Text::FrontMatter::YAML;
 
 our $VERSION = '0.01';
@@ -21,6 +20,8 @@ sub startup {
     $self->secrets(['who cares', 'i punch hamsters']);
 
     # Where are the documents
+    my $r = $self->routes;
+    $r->get('/:page_id')->to('rfile#rfile')->name('rfile');
 }
 
 1;
