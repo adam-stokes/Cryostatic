@@ -8,7 +8,11 @@ our $VERSION = '0.01';
 
 has static_ext => sub {
     my $self = shift;
-    return ['markdown', 'mkd', 'md'];
+    return {
+        'mkd'      => 1,
+        'markdown' => 1,
+        'md'       => 1
+    };
 };
 
 sub startup {
@@ -19,9 +23,8 @@ sub startup {
 
     $self->secrets(['who cares', 'i punch hamsters']);
 
-    # Where are the documents
     my $r = $self->routes;
-    $r->get('/:page_id')->to('rfile#rfile')->name('rfile');
+    $r->get('/*filename')->to('rfile#index')->name('index');
 }
 
 1;
