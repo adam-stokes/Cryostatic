@@ -20,9 +20,7 @@ sub startup {
     my $cfgfile = path("~/.cryostatic.conf");
     $self->plugin('Config' => {file => $cfgfile});
     $self->helper(config => $self->config || +{});
-
     $self->secrets(['who cares', 'i punch hamsters']);
-
     my $r = $self->routes;
     $r->get('/*filename')->to('rfile#index')->name('index');
 }
